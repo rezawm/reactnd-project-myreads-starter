@@ -20,7 +20,6 @@ class BooksApp extends React.Component {
   }
 
   updateBookShelf = (bookId, shelf) => {
-    console.log('book id', bookId, 'shelf', shelf)
     this.setState((currentState) => ({
       books: currentState.books.filter((b) => {
         if(b.id === bookId)
@@ -38,7 +37,9 @@ class BooksApp extends React.Component {
             closeSearch={() => {
               history.push('/')
             }}
-            books={this.state.books} />
+            books={this.state.books}
+            updateBookShelf={this.updateBookShelf}
+          />
         )}></Route>
         <Route exact path="/" render={() => (
           <MyBookShelfs
